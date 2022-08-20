@@ -6,6 +6,6 @@
 </head>
 <body>
 	<h1>Form well submitted</h1>
-	<p>Student name: ${param.name}</p>
+	<p>Student name: ${name}</p>
 </body>
 </html>
