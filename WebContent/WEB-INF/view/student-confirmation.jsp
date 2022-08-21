@@ -11,5 +11,6 @@
 <h1>Student info</h1>
 
 <p>Name: ${student.firstName} ${student.lastName}</p>
+<p>Country: ${student.country}</p>
 </body>
 </html>
