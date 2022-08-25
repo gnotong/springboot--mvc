@@ -1,8 +1,12 @@
 package com.notgabs.mvc;
 
+import jakarta.validation.constraints.NotNull;
+
 public class Student {
+	@NotNull(message = "required")
 	private String firstName;
-	private String LastName;
+	@NotNull(message = "required")
+	private String lastName;
 	private String country;	
 	
 	public String getFirstName() {
@@ -12,10 +16,10 @@ public class Student {
 		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 	public String getCountry() {
 		return country;
