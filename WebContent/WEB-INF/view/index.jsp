@@ -13,6 +13,7 @@
 
 <h1>Hello dude! ${pageContext.request.contextPath}</h1>
 <a href="show">Register</a> <br> <br>
-<a href="student/showForm">Register Student</a>
+<a href="student/showForm">Register Student</a> <br> <br>
+<a href="customer/showForm">Register Customer</a>
 </body>
 </html>
