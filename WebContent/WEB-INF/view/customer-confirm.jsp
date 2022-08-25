@@ -11,5 +11,6 @@
 <h1>Customer info</h1>
 
 <p>Name: ${customer.firstName} ${customer.lastName}</p>
+<p>Course code: ${customer.courseCode}</p>
 </body>
 </html>

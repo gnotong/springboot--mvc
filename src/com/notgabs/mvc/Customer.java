@@ -2,12 +2,15 @@ package com.notgabs.mvc;
 
 import javax.validation.constraints.NotBlank;
 
+import com.notgabs.mvc.validation.CourseCode;
+
 public class Customer {
 
 	@NotBlank
 	private String firstName;
 	@NotBlank
 	private String lastName;
+	@CourseCode(value = "MAMA", message = "must start with MAMA")
 	private String courseCode;
 	
 	public String getFirstName() {
