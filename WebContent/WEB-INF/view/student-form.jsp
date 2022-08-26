@@ -21,10 +21,8 @@
 		Last Name: <form:input path="lastName"/>
 		<form:errors path="lastName" cssClass="error"/> 
 		<br /><br />
-		Country:
-		<form:select path="country">
-			<form:options items="${countryOptions}" />
-		</form:select>
+		Email: <form:input path="email"/>
+		<form:errors path="enail" cssClass="error"/> 
 		<br /><br />
 		<input type="submit" value="Submit">
 	</form:form>

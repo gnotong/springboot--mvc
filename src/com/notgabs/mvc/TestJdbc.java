@@ -1,23 +1,27 @@
 package com.notgabs.mvc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.notgabs.mvc.entity.Student;
 
 public class TestJdbc {
 
 	public static void main(String[] args) {
 		
-		String jdbcUrl = "jdbc:mysql://localhost:3306/spring_mvc?useSSL=false";
-		String user = "hbstudent";
-		String pass = "hbstudent";
+		Student st = new Student("first", "last", "email@em.com");
 		
-		try {
-			System.out.println("connecting to DB: " + jdbcUrl);
-			Connection con = DriverManager.getConnection(jdbcUrl, user, pass);
-			
-			System.out.println("Connection successfull!!");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		
+		Session session = sessionFactory.openSession();
+		
+		session.beginTransaction();
+		
+		session.save(st);
+		
+		session.getTransaction().commit();
+		
+		session.close();
 	}
 }

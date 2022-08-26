@@ -1,4 +1,4 @@
-package com.notgabs.mvc;
+package com.notgabs.mvc.entity;
 
 import javax.validation.constraints.NotBlank;
 
