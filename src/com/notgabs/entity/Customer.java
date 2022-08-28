@@ -1,8 +1,8 @@
-package com.notgabs.mvc.entity;
+package com.notgabs.entity;
 
 import javax.validation.constraints.NotBlank;
 
-import com.notgabs.mvc.validation.CourseCode;
+import com.notgabs.validation.CourseCode;
 
 public class Customer {
 

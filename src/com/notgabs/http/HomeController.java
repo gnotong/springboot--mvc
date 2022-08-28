@@ -1,4 +1,4 @@
-package com.notgabs.mvc;
+package com.notgabs.http;
 
 import javax.servlet.http.HttpServletRequest;
 

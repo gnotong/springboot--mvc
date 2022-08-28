@@ -1,4 +1,4 @@
-package com.notgabs.mvc.entity;
+package com.notgabs.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

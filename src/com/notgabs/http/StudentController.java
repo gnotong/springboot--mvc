@@ -1,4 +1,4 @@
-package com.notgabs.mvc;
+package com.notgabs.http;
 
 import java.util.Map;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.notgabs.mvc.entity.Student;
+import com.notgabs.entity.Student;
 
 
 @Controller

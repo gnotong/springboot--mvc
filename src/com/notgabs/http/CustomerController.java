@@ -1,4 +1,4 @@
-package com.notgabs.mvc;
+package com.notgabs.http;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.notgabs.mvc.entity.Customer;
+import com.notgabs.entity.Customer;
 
 import jakarta.validation.Valid;
 
