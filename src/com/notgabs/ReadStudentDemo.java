@@ -3,6 +3,8 @@ package com.notgabs;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import com.notgabs.entity.Course;
 import com.notgabs.entity.Student;
 
 public class ReadStudentDemo {
@@ -16,9 +18,13 @@ public class ReadStudentDemo {
 		try {
 			session.beginTransaction();
 
-			Student st = session.load(Student.class, 10);
-
+			Student st = session.load(Student.class, 3);
+			
 			System.out.println(st);
+			
+			for(Course course: st.getCourses()) {
+				System.out.println(course);	
+			}
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

@@ -1,9 +1,17 @@
 package com.notgabs.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import jakarta.validation.constraints.NotNull;
@@ -13,8 +21,8 @@ import jakarta.validation.constraints.NotNull;
 public class Student {
 
 	@Id
-	@GeneratedValue
-	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
 	private int id;
 
 	@NotNull(message = "required")
@@ -28,12 +36,19 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+		name = "student_courses", 
+		joinColumns = { @JoinColumn(name = "student_id") }, 
+		inverseJoinColumns = { @JoinColumn(name = "course_id") }
+	)
+	private Set<Course> courses = new HashSet<>();
+
 	public Student() {
 
 	}
 
 	public Student(String firstName, String lastName, String email) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -61,6 +76,26 @@ public class Student {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Set<Course> getCourses() {
+		return courses;
+	}
+
+	public Student addCourse(Course course) {
+		if (!this.courses.contains(course)) {
+			this.courses.add(course);
+		}
+
+		return this;
+	}
+
+	public Student removeCourse(Course course) {
+		if (this.courses.contains(course)) {
+			this.courses.remove(course);
+		}
+
+		return this;
 	}
 
 	@Override

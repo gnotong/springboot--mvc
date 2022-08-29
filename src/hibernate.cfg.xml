@@ -24,6 +24,7 @@
 		<property name="hbm2ddl.auto">update</property>
 		
 		<mapping class="com.notgabs.entity.Student" />
+		<mapping class="com.notgabs.entity.Course" />
 	</session-factory><!-- -->
 
 </hibernate-configuration>
