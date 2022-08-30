@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="process" method="post">
+	<form action="process/v2" method="post">
 	<input type="text" name="name" placeholder="What's your name">
 	<input type="submit">
 	</form>
