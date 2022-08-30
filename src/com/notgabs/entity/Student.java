@@ -21,7 +21,7 @@ import jakarta.validation.constraints.NotNull;
 public class Student {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private int id;
 
@@ -36,11 +36,11 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinTable(
 		name = "student_courses", 
 		joinColumns = { @JoinColumn(name = "student_id") }, 
-		inverseJoinColumns = { @JoinColumn(name = "course_id") }
+		inverseJoinColumns = {@JoinColumn(name = "course_id") }
 	)
 	private Set<Course> courses = new HashSet<>();
 

@@ -3,6 +3,7 @@ package com.notgabs.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 public class Course {
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column
@@ -25,7 +26,7 @@ public class Course {
 	@Column
 	private String description = null;
 
-	@ManyToMany(mappedBy = "courses")
+	@ManyToMany(mappedBy = "courses", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	private Set<Student> students = new HashSet<>();
 
 	public Course() {

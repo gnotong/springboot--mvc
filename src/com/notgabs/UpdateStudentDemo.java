@@ -16,22 +16,22 @@ public class UpdateStudentDemo {
 		try {
 			session  = sessionFactory.getCurrentSession();
 			session.beginTransaction();
-			
-			Student st = session.get(Student.class, 2);
 
-			session.delete(st);
+			Student st = session.load(Student.class, 1);
+			
+			st.setFirstName("John");
+			st.setLastName("Doe");
+			st.setEmail("j.d@example.com");
 
 			session.getTransaction().commit();
-
-			//
 			
+			// BULK UPDATE
 			session  = sessionFactory.getCurrentSession();
 			session.beginTransaction();
 
-			session.createQuery("delete from Student where id=3").executeUpdate();
+			session.createQuery("update Student set email='baba@b.com'").executeUpdate();
 
 			session.getTransaction().commit();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
